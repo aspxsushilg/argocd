@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netcoreappdeployment
+  labels: 
+    app: netcore
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: netcoreapp
+  template:
+    metadata: 
+      labels: 
+        app: netcoreapp
+    spec: 
+      containers:
+       - name: netcoreapp
+         image: aspxsushilhd/sushilaksapp
+         ports:
+            - containerPort: 80
+
